@@ -169,28 +169,35 @@ export default function Home() {
           <div className="flex-1 flex flex-col overflow-hidden">
             <div className="flex-1 overflow-y-auto p-4">
               <div className="max-w-4xl mx-auto space-y-6">
-                {messages.map((msg) => (
-                  <div
-                    key={msg.id}
-                    className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
-                  >
+                {messages.map((msg, index) => {
+                  // Only animate the newest message
+                  const isNewest = index === messages.length - 1;
+                  
+                  return (
                     <div
-                      className={`max-w-3xl rounded-lg px-5 py-3 ${
-                        msg.isUser
-                          ? 'bg-primary text-white'
-                          : 'bg-card-bg border border-border text-foreground'
+                      key={msg.id}
+                      className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'} ${
+                        isNewest ? 'message-enter' : ''
                       }`}
                     >
-                      <div className="whitespace-pre-wrap">{msg.content}</div>
-                      <div className={`text-xs mt-1 ${msg.isUser ? 'text-blue-100' : 'text-muted'}`}>
-                        {msg.timestamp.toLocaleTimeString()}
+                      <div
+                        className={`max-w-3xl rounded-lg px-5 py-3 shadow-sm ${
+                          msg.isUser
+                            ? 'bg-primary text-white message-bubble-user'
+                            : 'bg-card-bg border border-border text-foreground message-bubble-assistant'
+                        }`}
+                      >
+                        <div className="whitespace-pre-wrap">{msg.content}</div>
+                        <div className={`text-xs mt-1 ${msg.isUser ? 'text-blue-100' : 'text-muted'}`}>
+                          {msg.timestamp.toLocaleTimeString()}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
                 {isLoading && (
-                  <div className="flex justify-start">
-                    <div className="bg-card-bg border border-border rounded-lg px-4 py-2">
+                  <div className="flex justify-start message-enter">
+                    <div className="bg-card-bg border border-border rounded-lg px-4 py-2 shadow-sm message-bubble-assistant">
                       <div className="flex items-center space-x-2">
                         <div className="animate-spin h-4 w-4 border-2 border-primary border-t-transparent rounded-full"></div>
                         <span className="text-muted">Thinking...</span>
