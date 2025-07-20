@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "T3.chat - AI Assistant",
-  description: "Your intelligent AI assistant for conversations and tasks",
+  title: "Community Curator AI Assistant",
+  description: "AI assistant for humanitarian aid",
 };
 
 export default function RootLayout({
