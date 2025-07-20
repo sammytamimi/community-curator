@@ -210,17 +210,6 @@ body {
   border: none !important;
 }
 
-.message-bubble-user::after {
-  content: '';
-  position: absolute;
-  top: 15px;
-  right: -6px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-left-color: #667eea;
-}
-
 .message-bubble-assistant {
   position: relative;
   background: var(--card-bg);

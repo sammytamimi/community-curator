@@ -16,30 +16,10 @@ export default function Home() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const actionButtons = [
-    { 
-      label: 'Emergency', 
-      icon: '🚨', 
-      description: 'Urgent assistance',
-      gradient: 'from-red-500 to-red-600'
-    },
-    { 
-      label: 'Resources', 
-      icon: '📚', 
-      description: 'Find support',
-      gradient: 'from-blue-500 to-blue-600'
-    },
-    { 
-      label: 'Support', 
-      icon: '🤝', 
-      description: 'Get help',
-      gradient: 'from-green-500 to-green-600'
-    },
-    { 
-      label: 'Locations', 
-      icon: '📍', 
-      description: 'Find services',
-      gradient: 'from-purple-500 to-purple-600'
-    },
+    { label: 'Emergency', description: 'Urgent assistance' },
+    { label: 'Resources', description: 'Find support' },
+    { label: 'Support', description: 'Get help' },
+    { label: 'Locations', description: 'Find services' },
   ];
 
   const examplePrompts = [
@@ -145,7 +125,7 @@ export default function Home() {
   const showWelcome = messages.length === 0;
 
   return (
-    <div className="h-screen flex bg-white">
+    <div className="h-screen flex bg-white overflow-hidden">
       {/* Sidebar */}
       <div className="w-72 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 flex flex-col">
         {/* Header */}
@@ -161,13 +141,13 @@ export default function Home() {
               onClick={handleNewChat}
               className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-sm transition-all font-medium"
             >
-              💬 New Chat
+              New Chat
             </button>
             <button className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-sm transition-all font-medium">
-              📚 Resources
+              Resources
             </button>
             <button className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-white hover:shadow-sm transition-all font-medium">
-              ⚙️ Settings
+              Settings
             </button>
           </nav>
         </div>
@@ -184,93 +164,47 @@ export default function Home() {
       <div className="flex-1 flex flex-col bg-white">
         {showWelcome ? (
           /* Welcome Screen */
-          <div className="flex-1 flex flex-col items-center justify-center p-8 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+          <div className="flex-1 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
             <div className="max-w-4xl w-full text-center">
               {/* Hero Section */}
-              <div className="mb-16">
-                <h1 className="text-6xl font-bold mb-6">
+              <div className="mb-8">
+                <h1 className="text-4xl font-bold mb-4">
                   Make support{' '}
                   <span className="gradient-text">yours.</span>
                 </h1>
-                <h2 className="text-4xl font-bold mb-8 text-gray-800">
+                <h2 className="text-2xl font-bold mb-4 text-gray-800">
                   And theirs.
                 </h2>
-                <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                   Connect with community resources, emergency services, and support networks. 
-                  Get the help you need, when you need it.
+                  Get the help you need.
                 </p>
-                
-                <button className="btn-primary text-lg px-8 py-4 rounded-2xl font-semibold inline-flex items-center gap-3">
-                  <span>Get Started</span>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
               </div>
 
               {/* Action Cards */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 {actionButtons.map((button, index) => (
                   <button
                     key={index}
-                    className="card group cursor-pointer text-center p-8 hover:scale-105 transition-all duration-300"
+                    className="card group cursor-pointer text-center p-4 hover:scale-105 transition-all duration-300"
                     onClick={() => handleExampleClick(`I need help with ${button.label.toLowerCase()}`)}
                   >
-                    <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${button.gradient} flex items-center justify-center text-2xl text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                      {button.icon}
-                    </div>
-                    <h3 className="font-bold text-gray-900 text-lg mb-2">{button.label}</h3>
-                    <p className="text-gray-600 text-sm">{button.description}</p>
+                    <h3 className="font-bold text-gray-900 text-base mb-1">{button.label}</h3>
+                    <p className="text-gray-600 text-xs">{button.description}</p>
                   </button>
                 ))}
               </div>
 
-              {/* One support system, help for everyone */}
-              <div className="mb-16">
-                <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  One platform, support for everyone
-                </h2>
-                
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl p-1 max-w-4xl mx-auto mb-12">
-                  <div className="bg-white rounded-3xl p-12">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-2xl flex items-center justify-center">
-                          <span className="text-2xl">🌐</span>
-                        </div>
-                        <h3 className="font-bold text-gray-900 mb-2">Universal Access</h3>
-                        <p className="text-gray-600 text-sm">Connect to resources regardless of your location or background</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-2xl flex items-center justify-center">
-                          <span className="text-2xl">⚡</span>
-                        </div>
-                        <h3 className="font-bold text-gray-900 mb-2">Instant Support</h3>
-                        <p className="text-gray-600 text-sm">Get immediate assistance when you need it most</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-2xl flex items-center justify-center">
-                          <span className="text-2xl">🤝</span>
-                        </div>
-                        <h3 className="font-bold text-gray-900 mb-2">Community Care</h3>
-                        <p className="text-gray-600 text-sm">Built by and for the community, ensuring relevant support</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               {/* Example Prompts */}
-              <div className="max-w-2xl mx-auto">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Try asking about:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="max-w-3xl mx-auto">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Try asking about:</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {examplePrompts.map((prompt, index) => (
                     <button
                       key={index}
-                      className="btn-secondary text-left p-4 rounded-xl hover:scale-105 transition-all duration-200"
+                      className="btn-secondary text-left p-3 rounded-xl hover:scale-105 transition-all duration-200 text-sm"
                       onClick={() => handleExampleClick(prompt)}
                     >
-                      <span className="text-blue-500 mr-3">💭</span>
                       {prompt}
                     </button>
                   ))}
