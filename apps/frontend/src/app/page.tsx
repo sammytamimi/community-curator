@@ -121,10 +121,11 @@ export default function Home() {
   return (
     <div className="h-screen flex bg-background">
       {/* Sidebar */}
-      <div className="w-64 bg-sidebar-bg border-r border-border flex flex-col">
+      <div className="w-64 bg-sidebar-bg border-r border-border flex flex-col shadow-lg">
         {/* Header */}
         <div className="p-4">
-          <h1 className="text-xl font-bold text-primary">Community Curator</h1>
+          <h1 className="text-2xl font-bold text-primary">Community Curator</h1>
+          <p className="text-sm text-muted">AI Assistant</p>
         </div>
       </div>
 
@@ -167,14 +168,14 @@ export default function Home() {
           /* Chat Interface */
           <div className="flex-1 flex flex-col overflow-hidden">
             <div className="flex-1 overflow-y-auto p-4">
-              <div className="max-w-4xl mx-auto space-y-4">
+              <div className="max-w-4xl mx-auto space-y-6">
                 {messages.map((msg) => (
                   <div
                     key={msg.id}
                     className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-3xl rounded-lg px-4 py-2 ${
+                      className={`max-w-3xl rounded-lg px-5 py-3 ${
                         msg.isUser
                           ? 'bg-primary text-white'
                           : 'bg-card-bg border border-border text-foreground'
