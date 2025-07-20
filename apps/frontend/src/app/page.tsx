@@ -119,12 +119,12 @@ export default function Home() {
   const showWelcome = messages.length === 0;
 
   return (
-    <div className="h-screen flex bg-gradient-to-br from-background via-background-alt to-background">
+    <div className="h-screen flex bg-gradient-to-br from-background via-background-alt to-background text-sm md:text-[15px]">
       {/* Sidebar */}
       <div className="w-64 bg-sidebar-bg border-r border-border flex flex-col shadow-lg">
         {/* Header */}
         <div className="p-4">
-          <h1 className="text-2xl font-bold text-primary">Community Curator</h1>
+          <h1 className="text-2xl font-extrabold text-primary">Community Curator</h1>
           <p className="text-sm text-muted">AI Assistant</p>
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function Home() {
                 {actionButtons.map((button, index) => (
                   <button
                     key={index}
-                    className={`${button.color} rounded-lg p-4 text-center transition-colors border border-transparent hover:border-opacity-20`}
+                    className={`${button.color} rounded-full px-6 py-3 text-center transition-all border border-transparent hover:bg-transparent hover:border-current font-medium shadow-sm`}
                   >
                     <div className="font-medium">{button.label}</div>
                   </button>
@@ -155,7 +155,7 @@ export default function Home() {
                 {examplePrompts.map((prompt, index) => (
                   <button
                     key={index}
-                    className="block w-full text-left text-muted hover:text-foreground py-3 px-4 rounded-lg hover:bg-card-bg transition-colors border border-border"
+                    className="block w-full text-left text-muted hover:text-foreground py-3 px-4 rounded-lg hover:bg-card-bg transition-colors border border-border font-medium"
                     onClick={() => handleExampleClick(prompt)}
                   >
                     {prompt}
@@ -188,7 +188,7 @@ export default function Home() {
                         }`}
                       >
                         <div className="whitespace-pre-wrap">{msg.content}</div>
-                        <div className={`text-xs mt-1 ${msg.isUser ? 'text-primary-100' : 'text-muted'}`}>
+                        <div className={`font-light tracking-wide text-xs mt-1 ${msg.isUser ? 'text-primary-100' : 'text-muted'}`}>
                           {msg.timestamp.toLocaleTimeString()}
                         </div>
                       </div>
@@ -200,7 +200,7 @@ export default function Home() {
                     <div className="bg-card-bg border border-border rounded-lg px-4 py-2 shadow-sm message-bubble-assistant">
                       <div className="flex items-center space-x-2">
                         <div className="animate-spin h-4 w-4 border-2 border-primary border-t-transparent rounded-full"></div>
-                        <span className="text-muted">Thinking...</span>
+                        <span className="text-muted font-medium">Thinking...</span>
                       </div>
                     </div>
                   </div>
@@ -215,7 +215,7 @@ export default function Home() {
         <div className="border-t border-border bg-card-bg p-4">
           <div className="max-w-4xl mx-auto">
             {/* Disclaimer */}
-            <div className="text-center text-xs text-muted mb-4">
+            <div className="text-center text-xs text-muted mb-4 font-light tracking-wide">
               This service provides general guidance. For life-threatening emergencies, contact local emergency services immediately.
             </div>
             
@@ -226,7 +226,7 @@ export default function Home() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Describe how we can assist you..."
-                  className="w-full bg-card-bg border border-border rounded-lg py-3 px-4 pr-20 resize-none focus:outline-none focus:border-primary min-h-[50px] max-h-32"
+                  className="w-full bg-card-bg border border-border rounded-lg py-3 px-4 pr-20 resize-none focus:outline-none focus:border-primary min-h-[50px] max-h-32 font-medium"
                   rows={1}
                   style={{ height: 'auto' }}
                   onInput={(e) => {
@@ -243,10 +243,10 @@ export default function Home() {
                 />
                 
                 {/* Send button */}
-                <div className="absolute right-2 bottom-2">
+                <div className="absolute bottom-2 right-2">
                   <button 
                     type="submit"
-                    className="bg-primary text-white rounded-full p-2 hover:bg-primary-dark transition-colors disabled:opacity-50"
+                    className="bg-primary text-white rounded-full p-3 shadow-md transition-transform duration-150 hover:translate-y-0.5 hover:shadow-lg hover:bg-primary-dark disabled:opacity-50"
                     disabled={!message.trim() || isLoading}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
