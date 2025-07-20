@@ -16,10 +16,10 @@ export default function Home() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const actionButtons = [
-    { label: 'Emergency', color: 'bg-red-100 text-red-700 hover:bg-red-200' },
-    { label: 'Resources', color: 'bg-blue-100 text-blue-700 hover:bg-blue-200' },
-    { label: 'Support', color: 'bg-green-100 text-green-700 hover:bg-green-200' },
-    { label: 'Locations', color: 'bg-orange-100 text-orange-700 hover:bg-orange-200' },
+    { label: 'Emergency', color: 'bg-urgent text-white hover:bg-red-700' },
+    { label: 'Resources', color: 'bg-primary-100 text-primary-900 hover:bg-primary-200' },
+    { label: 'Support', color: 'bg-accent-100 text-accent-900 hover:bg-accent-200' },
+    { label: 'Locations', color: 'bg-primary-50 text-primary hover:bg-primary-100' },
   ];
 
   const examplePrompts = [
@@ -119,7 +119,7 @@ export default function Home() {
   const showWelcome = messages.length === 0;
 
   return (
-    <div className="h-screen flex bg-background">
+    <div className="h-screen flex bg-gradient-to-br from-background via-background-alt to-background">
       {/* Sidebar */}
       <div className="w-64 bg-sidebar-bg border-r border-border flex flex-col shadow-lg">
         {/* Header */}
@@ -188,7 +188,7 @@ export default function Home() {
                         }`}
                       >
                         <div className="whitespace-pre-wrap">{msg.content}</div>
-                        <div className={`text-xs mt-1 ${msg.isUser ? 'text-blue-100' : 'text-muted'}`}>
+                        <div className={`text-xs mt-1 ${msg.isUser ? 'text-primary-100' : 'text-muted'}`}>
                           {msg.timestamp.toLocaleTimeString()}
                         </div>
                       </div>

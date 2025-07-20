@@ -2,11 +2,28 @@
 
 :root {
   --background: #f8fafc;
+  --background-alt: #f1f5f9;
   --foreground: #1e293b;
   --sidebar-bg: #e2e8f0;
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
-  --accent: #0ea5e9;
+  
+  /* Primary: Teal - Professional, trustworthy, calming */
+  --primary: #0d9488;
+  --primary-dark: #0f766e;
+  --primary-light: #14b8a6;
+  --primary-50: #f0fdfa;
+  --primary-100: #ccfbf1;
+  --primary-200: #99f6e4;
+  --primary-900: #134e4a;
+  
+  /* Secondary: Amber - Warm, optimistic, friendly */
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  --accent-light: #fbbf24;
+  --accent-50: #fffbeb;
+  --accent-100: #fef3c7;
+  --accent-200: #fde68a;
+  --accent-900: #78350f;
+  
   --muted: #64748b;
   --border: #cbd5e1;
   --card-bg: #ffffff;
@@ -17,11 +34,28 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
   --color-sidebar-bg: var(--sidebar-bg);
+  
+  /* Primary Teal Scale */
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-900: var(--primary-900);
+  
+  /* Secondary Amber Scale */
   --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-light: var(--accent-light);
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-900: var(--accent-900);
+  
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-card-bg: var(--card-bg);
@@ -35,11 +69,28 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0f172a;
+    --background-alt: #1e293b;
     --foreground: #e2e8f0;
     --sidebar-bg: #1e293b;
-    --primary: #3b82f6;
-    --primary-dark: #2563eb;
-    --accent: #0ea5e9;
+    
+    /* Primary: Teal - Adjusted for dark mode */
+    --primary: #14b8a6;
+    --primary-dark: #0d9488;
+    --primary-light: #2dd4bf;
+    --primary-50: #134e4a;
+    --primary-100: #134e4a;
+    --primary-200: #0f766e;
+    --primary-900: #f0fdfa;
+    
+    /* Secondary: Amber - Adjusted for dark mode */
+    --accent: #fbbf24;
+    --accent-dark: #f59e0b;
+    --accent-light: #fcd34d;
+    --accent-50: #78350f;
+    --accent-100: #78350f;
+    --accent-200: #d97706;
+    --accent-900: #fffbeb;
+    
     --muted: #94a3b8;
     --border: #334155;
     --card-bg: #1e293b;
@@ -50,11 +101,12 @@
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(to bottom right, var(--background), var(--background-alt), var(--background));
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 * {
