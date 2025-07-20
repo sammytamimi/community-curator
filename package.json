@@ -1,0 +1,21 @@
+{
+  "name": "community-curator",
+  "version": "1.0.0",
+  "description": "Community Curator Monorepo",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm run --parallel dev",
+    "build": "pnpm run --recursive build",
+    "frontend:dev": "pnpm --filter frontend dev",
+    "frontend:build": "pnpm --filter frontend build",
+    "backend:dev": "pnpm --filter backend dev",
+    "install:all": "pnpm install"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
